@@ -58,7 +58,7 @@ bot.command('start', async (ctx) => {
       .text('Uzbekistan', 'UZ').row()
       .text('Kyrgyzstan', 'KG').row()
       .text('Tajikistan', 'TK').row()
-      .text('Turkey', 'TR');
+      .text('Turkey', 'TR').row();
   
     const lng = ctx.session.language || 'en';
     i18n.changeLanguage(lng);
@@ -93,4 +93,22 @@ bot.command('start', async (ctx) => {
     i18n.changeLanguage(lng);
     await ctx.answerCallbackQuery(i18n.t('selected_country', { country }));
     logger.info('User %s selected country %s and language %s', ctx.from.id, country, lng);
+  });
+
+  bot.command('about-me', async (ctx) => {
+    const user = await knex('users').where('telegram_id', ctx.from.id).first();
+    const lng = ctx.session.language || 'en';
+    i18n.changeLanguage(lng);
+    
+    if (user) {
+      await ctx.reply(i18n.t('user_info', {
+        first_name: user.first_name,
+        last_name: user.last_name,
+        telegram_id: user.telegram_id,
+        created_at: user.created_at,
+        country: user.country
+      }));
+    } else {
+      await ctx.reply(i18n.t('user_not_found'));
+    }
   });
