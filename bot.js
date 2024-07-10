@@ -66,4 +66,31 @@ bot.command('start', async (ctx) => {
   });  
 
 
+  bot.callbackQuery(async (ctx) => {
+    const country = ctx.callbackQuery.data;
+    await knex('users')
+      .where('telegram_id', ctx.from.id)
+      .update({ country });
+   
+    const languageMap = {
+      'RU': 'ru',
+      'UA': 'uk',
+      'BY': 'by',
+      'KZ': 'kz',
+      'AM': 'am',
+      'AZ': 'az',
+      'GE': 'ge',
+      'MD': 'md',
+      'TM': 'tm',
+      'UZ': 'uz',
+      'KG': 'kg',
+      'TJ': 'tj',
+      'TR': 'tr'
+    };
+    ctx.session.language = languageMap[country] || 'en';
   
+    const lng = ctx.session.language;
+    i18n.changeLanguage(lng);
+    await ctx.answerCallbackQuery(i18n.t('selected_country', { country }));
+    logger.info('User %s selected country %s and language %s', ctx.from.id, country, lng);
+  });
