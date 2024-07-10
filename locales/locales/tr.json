@@ -1,0 +1,8 @@
+{
+    "welcome": "Hoş geldiniz! Ülkenizi ayarlamak için /set-country ve bilgilerinizi görmek için /about-me kullanın.",
+    "select_country": "Lütfen ülkenizi seçin:",
+    "selected_country": "Seçtiniz {{country}}",
+    "user_info": "Bilgileriniz:\n\nAdı: {{first_name}}\nSoyadı: {{last_name}}\nTelegram ID: {{telegram_id}}\nOluşturulma Tarihi: {{created_at}}\nÜlke: {{country}}",
+    "user_not_found": "Kullanıcı bulunamadı."
+  }
+  

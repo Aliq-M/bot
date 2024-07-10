@@ -1,0 +1,8 @@
+{
+    "welcome": "კეთილი იყოს თქვენი მობრძანება! გამოიყენეთ /set-country თქვენი ქვეყნის დასაყენებლად და /about-me თქვენი ინფორმაციის სანახავად.",
+    "select_country": "გთხოვთ, აირჩიოთ თქვენი ქვეყანა:",
+    "selected_country": "თქვენ აირჩიეთ {{country}}",
+    "user_info": "თქვენი ინფორმაცია:\n\nსახელი: {{first_name}}\nგვარი: {{last_name}}\nTelegram ID: {{telegram_id}}\nშექმნის თარიღი: {{created_at}}\nქვეყანა: {{country}}",
+    "user_not_found": "მომხმარებელი ვერ მოიძებნა."
+  }
+  
