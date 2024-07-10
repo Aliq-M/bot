@@ -1,16 +1,18 @@
 require('dotenv').config();
-const { Bot, InlineKeyboard} = require('grammy'); 
+const { Bot, InlineKeyboard, session } = require('grammy');
 const express = require('express');
-const Knex = require('knex')(require('./knexfile').development);
+const knex = require('knex')(require('./knexfile').development);
 const logger = require('./logger');
-const knex = require('knex');
+const i18n = require('./i18n');
 
 const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN);
+
+bot.use(session({ initial: () => ({ language: 'en' }) }));
 
 const app = express();
 app.use(express.json());
 
-logger.info('started');
+logger.info('Bot started');
 
 
 async function addUser(ctx) {
@@ -33,3 +35,10 @@ async function addUser(ctx) {
         }
     }
 }
+
+bot.command('start', async (ctx) => {
+    await addUser(ctx);
+    const lng = ctx.session.language || 'en';
+    i18n.changeLanguage(lng);
+    await ctx.reply(i18n.t('welcome'));
+  });
