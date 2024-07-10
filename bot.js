@@ -42,3 +42,28 @@ bot.command('start', async (ctx) => {
     i18n.changeLanguage(lng);
     await ctx.reply(i18n.t('welcome'));
   });
+
+
+  bot.command('set-country', async (ctx) => {
+    const keyboard = new InlineKeyboard()
+      .text('Russia', 'RU').row()
+      .text('Ukraine', 'UA').row()
+      .text('Belarus', 'BY').row()
+      .text('Kazakhstan', 'KZ').row()
+      .text('Armenia', 'AM').row()
+      .text('Azerbaijan', 'AZ').row()
+      .text('Georgia', 'GE').row()
+      .text('Moldova', 'MD').row()
+      .text('Turkmenistan', 'TM').row()
+      .text('Uzbekistan', 'UZ').row()
+      .text('Kyrgyzstan', 'KG').row()
+      .text('Tajikistan', 'TK').row()
+      .text('Turkey', 'TR');
+  
+    const lng = ctx.session.language || 'en';
+    i18n.changeLanguage(lng);
+    await ctx.reply(i18n.t('select_country'), { reply_markup: keyboard });
+  });  
+
+
+  
