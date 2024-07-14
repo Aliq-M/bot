@@ -1,0 +1,37 @@
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-10 15:36:09"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-10 15:36:09"}
+{"level":"error","message":"Error adding user: insert into `users` (`country`, `created_ad`, `first_name`, `is_bot`, `last_name`, `telegram_id`) values (NULL, '2024-07-10 15:37:13.904', 'Name', false, NULL, 6783594958) - SQLITE_ERROR: table users has no column named created_ad","service":"user-service","timestamp":"2024-07-10 15:37:13"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-10 15:44:42"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-10 15:44:42"}
+{"level":"error","message":"Error adding user: insert into `users` (`country`, `created_ad`, `first_name`, `is_bot`, `last_name`, `telegram_id`) values (NULL, '2024-07-10 15:44:43.037', 'Name', false, NULL, 6783594958) - SQLITE_ERROR: table users has no column named created_ad","service":"user-service","timestamp":"2024-07-10 15:44:43"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-11 09:39:37"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-11 09:39:37"}
+{"level":"error","message":"Error adding user: insert into `users` (`country`, `created_ad`, `first_name`, `is_bot`, `last_name`, `telegram_id`) values (NULL, '2024-07-11 09:39:38.033', 'Name', false, NULL, 6783594958) - SQLITE_ERROR: table users has no column named created_ad","service":"user-service","timestamp":"2024-07-11 09:39:38"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-11 09:42:42"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-11 09:42:42"}
+{"level":"error","message":"Error adding user: insert into `users` (`country`, `created_ad`, `first_name`, `is_bot`, `last_name`, `telegram_id`) values (NULL, '2024-07-11 09:42:43.139', 'Name', false, NULL, 6783594958) - SQLITE_ERROR: table users has no column named created_ad","service":"user-service","timestamp":"2024-07-11 09:42:43"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-11 09:44:42"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-11 09:44:42"}
+{"level":"info","message":"New user added: 6783594958","service":"user-service","timestamp":"2024-07-11 09:44:43"}
+{"level":"info","message":"User already exists: %s","service":"user-service","timestamp":"2024-07-11 09:46:46"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-11 09:59:21"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-11 09:59:21"}
+{"level":"info","message":"Received /start command from user: 6783594958","service":"user-service","timestamp":"2024-07-11 09:59:22"}
+{"level":"info","message":"User already exists: %s","service":"user-service","timestamp":"2024-07-11 09:59:22"}
+{"level":"info","message":"Language set to: en for user: 6783594958","service":"user-service","timestamp":"2024-07-11 09:59:22"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-11 10:05:01"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-11 10:05:01"}
+{"level":"info","message":"Received /start command from user: 6783594958","service":"user-service","timestamp":"2024-07-11 10:05:01"}
+{"level":"info","message":"User already exists: 6783594958","service":"user-service","timestamp":"2024-07-11 10:05:01"}
+{"level":"info","message":"Language set to: en for user: 6783594958","service":"user-service","timestamp":"2024-07-11 10:05:01"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-11 10:10:35"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-11 10:10:35"}
+{"level":"info","message":"Received /start command from user: 6783594958","service":"user-service","timestamp":"2024-07-11 10:10:36"}
+{"level":"info","message":"User already exists: 6783594958","service":"user-service","timestamp":"2024-07-11 10:10:36"}
+{"level":"info","message":"Language set to: en for user: 6783594958","service":"user-service","timestamp":"2024-07-11 10:10:36"}
+{"level":"info","message":"Received callback query with country: UA from user: 6783594958","service":"user-service","timestamp":"2024-07-11 10:10:50"}
+{"level":"info","message":"User 6783594958 selected country UA and language uk","service":"user-service","timestamp":"2024-07-11 10:10:50"}
+{"level":"info","message":"Received callback query with country: UA from user: 6783594958","service":"user-service","timestamp":"2024-07-11 10:10:56"}
+{"level":"info","message":"User 6783594958 selected country UA and language uk","service":"user-service","timestamp":"2024-07-11 10:10:56"}
+{"level":"info","message":"Received callback query with country: TJ from user: 6783594958","service":"user-service","timestamp":"2024-07-11 10:11:09"}
+{"level":"info","message":"User 6783594958 selected country TJ and language tj","service":"user-service","timestamp":"2024-07-11 10:11:10"}
