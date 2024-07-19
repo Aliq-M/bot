@@ -1,0 +1,8 @@
+{
+    "welcome": "Բարի գալուստ! Օգտագործեք /set-country, որպեսզի սահմանեք ձեր երկիրը և /about-me, որպեսզի տեսնեք ձեր տեղեկությունները:",
+    "select_country": "Խնդրում ենք ընտրել ձեր երկիրը:",
+    "selected_country": "Դուք ընտրեցիք {{country}}:",
+    "user_info": "Ձեր տեղեկությունները:\nԱնուն: {{first_name}}\nԱզգանուն: {{last_name}}\nTelegram ID: {{telegram_id}}\nՍտեղծման ամսաթիվ: {{created_at}}\nԵրկիր: {{country}}",
+    "user_not_found": "Օգտատերը չգտնվեց:"
+  }
+  

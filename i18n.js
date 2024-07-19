@@ -1,16 +1,14 @@
-const i18n = require('i18next');
+const i18next = require('i18next');
 const Backend = require('i18next-fs-backend');
-const { join } = require('path');
+const path = require('path');
 
-i18n.use(Backend).init({
-  lng: 'en',
+i18next.use(Backend).init({
   fallbackLng: 'en',
+  lng: 'en',
   backend: {
-    loadPath: join(__dirname, 'locales/{{lng}}.json')
+    loadPath: path.join(__dirname, 'locales', '{{lng}}.json'),
   },
-  interpolation: {
-    escapeValue: false
-  }
+  debug: true,
 });
 
-module.exports = i18n;
+module.exports = i18next;

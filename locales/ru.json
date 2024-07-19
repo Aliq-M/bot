@@ -1,0 +1,8 @@
+{
+    "welcome": "Добро пожаловать! Используйте /set-country, чтобы установить вашу страну, и /about-me, чтобы увидеть вашу информацию.",
+    "select_country": "Пожалуйста, выберите вашу страну:",
+    "selected_country": "Вы выбрали {{country}}.",
+    "user_info": "Ваша информация:\nИмя: {{first_name}}\nФамилия: {{last_name}}\nTelegram ID: {{telegram_id}}\nДата создания: {{created_at}}\nСтрана: {{country}}",
+    "user_not_found": "Пользователь не найден."
+  }
+  

@@ -4,6 +4,8 @@ const express = require('express');
 const knex = require('knex')(require('./knexfile').development);
 const logger = require('./logger');
 const i18n = require('./i18n');
+const path = require('path');
+const fs = require('fs');
 
 const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN);
 
@@ -13,6 +15,17 @@ const app = express();
 app.use(express.json());
 
 logger.info('Bot started');
+
+// Проверка наличия файлов локализации
+const languages = ['en', 'uk', 'az', 'ru', 'by', 'kz', 'am', 'ge', 'md', 'tm', 'uz', 'kg', 'tj', 'tr'];
+languages.forEach((lang) => {
+  const filePath = path.join(__dirname, 'locales', `${lang}.json`);
+  if (fs.existsSync(filePath)) {
+    logger.info(`Localization file for ${lang} found: ${filePath}`);
+  } else {
+    logger.error(`Localization file for ${lang} not found: ${filePath}`);
+  }
+});
 
 async function addUser(ctx) {
   const user = ctx.from;
@@ -66,11 +79,41 @@ bot.command('start', async (ctx) => {
 });
 
 bot.callbackQuery(/.+/, async (ctx) => {
-  const country = ctx.callbackQuery.data;
-  logger.info('Received callback query with country: %s from user: %s', country, ctx.from.id);
+  const data = ctx.callbackQuery.data;
+
+  if (data === 'about_me') {
+    logger.info('Received /about-me callback query from user: %s', ctx.from.id);
+    const user = await knex('users').where('telegram_id', ctx.from.id).first();
+    const lng = ctx.session.language || 'en';
+    i18n.changeLanguage(lng);
+
+    if (user) {
+      await ctx.reply(i18n.t('user_info', {
+        first_name: user.first_name,
+        last_name: user.last_name,
+        telegram_id: user.telegram_id,
+        created_at: user.created_at,
+        country: user.country
+      })).catch(err => {
+        logger.error('Error replying to /about-me command: %s', err.message);
+      });
+    } else {
+      await ctx.reply(i18n.t('user_not_found')).catch(err => {
+        logger.error('Error replying to /about-me command: %s', err.message);
+      });
+    }
+
+    await ctx.answerCallbackQuery().catch(err => {
+      logger.error('Error answering callback query: %s', err.message);
+    });
+
+    return;
+  }
+
+  logger.info('Received callback query with country: %s from user: %s', data, ctx.from.id);
   await knex('users')
     .where('telegram_id', ctx.from.id)
-    .update({ country });
+    .update({ country: data });
 
   const languageMap = {
     'RU': 'ru',
@@ -87,14 +130,31 @@ bot.callbackQuery(/.+/, async (ctx) => {
     'TJ': 'tj',
     'TR': 'tr'
   };
-  ctx.session.language = languageMap[country] || 'en';
+  ctx.session.language = languageMap[data] || 'en';
 
   const lng = ctx.session.language;
   i18n.changeLanguage(lng);
-  await ctx.answerCallbackQuery(i18n.t('selected_country', { country })).catch(err => {
+
+  logger.info('Sending confirmation message to user: %s for country: %s', ctx.from.id, data);
+
+  try {
+    await ctx.reply(i18n.t('selected_country', { country: data }));
+    logger.info('Confirmation message sent to user: %s for country: %s', ctx.from.id, data);
+  } catch (err) {
+    logger.error('Error sending confirmation message: %s', err.message);
+  }
+
+  const keyboard = new InlineKeyboard().text('/about-me', 'about_me');
+
+  await ctx.reply("Выберите команду:", { reply_markup: keyboard }).catch(err => {
+    logger.error('Error replying with /about-me keyboard: %s', err.message);
+  });
+
+  await ctx.answerCallbackQuery(`Вы выбрали ${data}`).catch(err => {
     logger.error('Error answering callback query: %s', err.message);
   });
-  logger.info('User %s selected country %s and language %s', ctx.from.id, country, lng);
+
+  logger.info('User %s selected country %s and language %s', ctx.from.id, data, lng);
 });
 
 bot.command('about-me', async (ctx) => {
@@ -117,7 +177,6 @@ bot.command('about-me', async (ctx) => {
     await ctx.reply(i18n.t('user_not_found')).catch(err => {
       logger.error('Error replying to /about-me command: %s', err.message);
     });
-    logger.info('User not found for /about-me command: %s', ctx.from.id);
   }
 });
 

@@ -1,0 +1,8 @@
+{
+    "welcome": "Hoş geldiňiz! Ýurdy bellemek üçin /set-country ulanyň we maglumatlaryňyzy görmek üçin /about-me.",
+    "select_country": "Hökman, ýurdy saýlaň:",
+    "selected_country": "Siz {{country}} saýladyňyz.",
+    "user_info": "Siziň maglumatlaryňyz:\nAdy: {{first_name}}\nFamiliýasy: {{last_name}}\nTelegram ID: {{telegram_id}}\nDöredilen: {{created_at}}\nÝurt: {{country}}",
+    "user_not_found": "Ulanyjy tapylmady."
+  }
+  

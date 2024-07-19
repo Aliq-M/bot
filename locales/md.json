@@ -1,0 +1,8 @@
+{
+    "welcome": "Bine ați venit! Utilizați /set-country pentru a vă seta țara și /about-me pentru a vă vedea informațiile.",
+    "select_country": "Vă rugăm să selectați țara dvs.:",
+    "selected_country": "Ați selectat {{country}}.",
+    "user_info": "Informațiile dvs.:\nPrenume: {{first_name}}\nNume de familie: {{last_name}}\nTelegram ID: {{telegram_id}}\nCreat la: {{created_at}}\nȚara: {{country}}",
+    "user_not_found": "Utilizatorul nu a fost găsit."
+  }
+  

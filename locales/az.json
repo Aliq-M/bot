@@ -1,0 +1,8 @@
+{
+    "welcome": "Xoş gəlmişsiniz! Ölkənizi təyin etmək üçün /set-country istifadə edin və məlumatınızı görmək üçün /about-me.",
+    "select_country": "Zəhmət olmasa ölkənizi seçin:",
+    "selected_country": "Siz {{country}} seçdiniz.",
+    "user_info": "Məlumatlarınız:\nAd: {{first_name}}\nSoyad: {{last_name}}\nTelegram ID: {{telegram_id}}\nYaradılma tarixi: {{created_at}}\nÖlkə: {{country}}",
+    "user_not_found": "İstifadəçi tapılmadı."
+  }
+  

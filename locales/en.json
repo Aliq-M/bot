@@ -1,0 +1,8 @@
+{
+    "welcome": "Welcome! Use /set-country to set your country and /about-me to see your information.",
+    "select_country": "Please select your country:",
+    "selected_country": "You have selected {{country}}.",
+    "user_info": "Your info:\nFirst Name: {{first_name}}\nLast Name: {{last_name}}\nTelegram ID: {{telegram_id}}\nCreated At: {{created_at}}\nCountry: {{country}}",
+    "user_not_found": "User not found."
+  }
+  

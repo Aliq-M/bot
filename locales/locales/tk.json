@@ -1,8 +1,0 @@
-{
-    "welcome": "Хуш омадед! Аз /set-country барои интихоби кишвари худ ва аз /about-me барои дидани маълумоти худ истифода баред.",
-    "select_country": "Лутфан кишвари худро интихоб кунед:",
-    "selected_country": "Шумо интихоб кардед {{country}}",
-    "user_info": "Маълумоти шумо:\n\nНом: {{first_name}}\nНасаб: {{last_name}}\nTelegram ID: {{telegram_id}}\nСанаи таъсис: {{created_at}}\nКишвар: {{country}}",
-    "user_not_found": "Корбар ёфт нашуд."
-  }
-  
