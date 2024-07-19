@@ -6,6 +6,7 @@ const logger = require('./logger');
 const i18n = require('./i18n');
 const path = require('path');
 const fs = require('fs');
+const { format } = require('date-fns'); // Добавляем библиотеку date-fns для форматирования даты
 
 const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN);
 
@@ -88,11 +89,12 @@ bot.callbackQuery(/.+/, async (ctx) => {
     i18n.changeLanguage(lng);
 
     if (user) {
+      const formattedDate = format(new Date(user.created_at), 'yyyy-MM-dd HH:mm:ss'); // Форматирование даты
       await ctx.reply(i18n.t('user_info', {
         first_name: user.first_name,
         last_name: user.last_name,
         telegram_id: user.telegram_id,
-        created_at: user.created_at,
+        created_at: formattedDate,
         country: user.country
       })).catch(err => {
         logger.error('Error replying to /about-me command: %s', err.message);
@@ -101,19 +103,16 @@ bot.callbackQuery(/.+/, async (ctx) => {
       await ctx.reply(i18n.t('user_not_found')).catch(err => {
         logger.error('Error replying to /about-me command: %s', err.message);
       });
+      logger.info('User not found for /about-me command: %s', ctx.from.id);
     }
-
-    await ctx.answerCallbackQuery().catch(err => {
-      logger.error('Error answering callback query: %s', err.message);
-    });
-
     return;
   }
 
-  logger.info('Received callback query with country: %s from user: %s', data, ctx.from.id);
+  const country = data;
+  logger.info('Received callback query with country: %s from user: %s', country, ctx.from.id);
   await knex('users')
     .where('telegram_id', ctx.from.id)
-    .update({ country: data });
+    .update({ country });
 
   const languageMap = {
     'RU': 'ru',
@@ -130,31 +129,30 @@ bot.callbackQuery(/.+/, async (ctx) => {
     'TJ': 'tj',
     'TR': 'tr'
   };
-  ctx.session.language = languageMap[data] || 'en';
+  ctx.session.language = languageMap[country] || 'en';
 
   const lng = ctx.session.language;
   i18n.changeLanguage(lng);
 
-  logger.info('Sending confirmation message to user: %s for country: %s', ctx.from.id, data);
+  logger.info('Sending confirmation message to user: %s for country: %s', ctx.from.id, country);
 
   try {
-    await ctx.reply(i18n.t('selected_country', { country: data }));
-    logger.info('Confirmation message sent to user: %s for country: %s', ctx.from.id, data);
+    await ctx.reply(i18n.t('selected_country', { country }));
+    logger.info('Confirmation message sent to user: %s for country: %s', ctx.from.id, country);
   } catch (err) {
     logger.error('Error sending confirmation message: %s', err.message);
   }
 
   const keyboard = new InlineKeyboard().text('/about-me', 'about_me');
-
-  await ctx.reply("Выберите команду:", { reply_markup: keyboard }).catch(err => {
-    logger.error('Error replying with /about-me keyboard: %s', err.message);
+  await ctx.reply(i18n.t('about_me'), { reply_markup: keyboard }).catch(err => {
+    logger.error('Error replying with about_me keyboard: %s', err.message);
   });
 
-  await ctx.answerCallbackQuery(`Вы выбрали ${data}`).catch(err => {
+  await ctx.answerCallbackQuery().catch(err => {
     logger.error('Error answering callback query: %s', err.message);
   });
 
-  logger.info('User %s selected country %s and language %s', ctx.from.id, data, lng);
+  logger.info('User %s selected country %s and language %s', ctx.from.id, country, lng);
 });
 
 bot.command('about-me', async (ctx) => {
@@ -164,11 +162,12 @@ bot.command('about-me', async (ctx) => {
   i18n.changeLanguage(lng);
 
   if (user) {
+    const formattedDate = format(new Date(user.created_at), 'yyyy-MM-dd HH:mm:ss'); // Форматирование даты
     await ctx.reply(i18n.t('user_info', {
       first_name: user.first_name,
       last_name: user.last_name,
       telegram_id: user.telegram_id,
-      created_at: user.created_at,
+      created_at: formattedDate,
       country: user.country
     })).catch(err => {
       logger.error('Error replying to /about-me command: %s', err.message);
@@ -177,6 +176,7 @@ bot.command('about-me', async (ctx) => {
     await ctx.reply(i18n.t('user_not_found')).catch(err => {
       logger.error('Error replying to /about-me command: %s', err.message);
     });
+    logger.info('User not found for /about-me command: %s', ctx.from.id);
   }
 });
 

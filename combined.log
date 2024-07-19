@@ -397,3 +397,27 @@
 {"level":"info","message":"Confirmation message sent to user: 6783594958 for country: UA","service":"user-service","timestamp":"2024-07-19 14:54:07"}
 {"level":"info","message":"User 6783594958 selected country UA and language uk","service":"user-service","timestamp":"2024-07-19 14:54:07"}
 {"level":"info","message":"Received /about-me callback query from user: 6783594958","service":"user-service","timestamp":"2024-07-19 14:54:09"}
+{"level":"info","message":"Bot started","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for en found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\en.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for uk found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\uk.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for az found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\az.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for ru found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\ru.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for by found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\by.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for kz found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\kz.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for am found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\am.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for ge found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\ge.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for md found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\md.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for tm found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\tm.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for uz found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\uz.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for kg found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\kg.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for tj found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\tj.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Localization file for tr found: C:\\Users\\Brissenden\\Documents\\programs and projects\\work projects\\bot\\locales\\tr.json","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Server is running on port 3000","service":"user-service","timestamp":"2024-07-19 15:37:15"}
+{"level":"info","message":"Received /start command from user: 5090839595","service":"user-service","timestamp":"2024-07-19 15:37:23"}
+{"level":"info","message":"User already exists: 5090839595","service":"user-service","timestamp":"2024-07-19 15:37:23"}
+{"level":"info","message":"Language set to: en for user: 5090839595","service":"user-service","timestamp":"2024-07-19 15:37:23"}
+{"level":"info","message":"Received callback query with country: BY from user: 5090839595","service":"user-service","timestamp":"2024-07-19 15:37:28"}
+{"level":"info","message":"Sending confirmation message to user: 5090839595 for country: BY","service":"user-service","timestamp":"2024-07-19 15:37:28"}
+{"level":"info","message":"Confirmation message sent to user: 5090839595 for country: BY","service":"user-service","timestamp":"2024-07-19 15:37:28"}
+{"level":"info","message":"User 5090839595 selected country BY and language by","service":"user-service","timestamp":"2024-07-19 15:37:28"}
+{"level":"info","message":"Received /about-me callback query from user: 5090839595","service":"user-service","timestamp":"2024-07-19 15:37:31"}
